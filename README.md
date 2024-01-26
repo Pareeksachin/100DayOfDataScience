@@ -1,0 +1,35 @@
+# 100 Days of Data Science Series
+
+Welcome to my 100 Days of Data Science series repository! In this series, I'll be covering a variety of topics related to data science, ranging from Python basics to more advanced concepts. The content is designed at a moderate level, making it suitable for learners looking to deepen their understanding of data science.
+
+## Table of Contents
+
+Day1-L1
+
+1. [Array and String in Python](https://github.com/Pareeksachin/100DayOfDataScience/blob/master/Day1-L1/Array%20%2C%20String%20in%20Python.ipynb)
+2. [Built-in Data Structures in Python](https://github.com/Pareeksachin/100DayOfDataScience/blob/master/Day1-L1/Built-in%20data%20structures%20in%20Python.ipynb)
+3. [Functions in Python](https://github.com/Pareeksachin/100DayOfDataScience/blob/master/Day1-L1/Functions%20in%20Python.ipynb)
+4. [OOPs in Python](https://github.com/Pareeksachin/100DayOfDataScience/blob/master/Day1-L1/OOPs%20in%20Python.ipynb)
+5. [Pattern Programs in Python](https://github.com/Pareeksachin/100DayOfDataScience/blob/master/Day1-L1/Pattern%20Programs%20in%20Python.ipynb)
+6. [File Handling in Python](https://github.com/Pareeksachin/100DayOfDataScience/blob/master/Day1-L1/File%20handling%20in%20python.ipynb)
+
+## About the Series
+
+This repository contains my progress in the 100 Days of Data Science series. I will Cover almost all the data science topic in 5 Levels.
+
+## How to Use
+
+- Each day's content is organized in a separate Jupyter Notebook file.
+- You can navigate to the specific day's file by clicking on the provided links in the table of contents.
+- Feel free to explore, learn, and adapt the code to your projects.
+
+Contribution
+If you find any issues, have suggestions, or want to contribute to this series, feel free to open an issue or submit a pull request. Contributions are always welcome!
+
+
+## Connect with Me
+
+- **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/sachin-pareek-692b96184/)
+- **Twitter:** [@YourTwitterHandle](https://twitter.com/Pareeksachin2)
+
+Happy coding and learning!
