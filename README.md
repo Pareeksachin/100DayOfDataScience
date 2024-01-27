@@ -13,6 +13,17 @@ Day1-L1
 5. [Pattern Programs in Python](https://github.com/Pareeksachin/100DayOfDataScience/blob/master/Day1-L1/Pattern%20Programs%20in%20Python.ipynb)
 6. [File Handling in Python](https://github.com/Pareeksachin/100DayOfDataScience/blob/master/Day1-L1/File%20handling%20in%20python.ipynb)
 
+
+Day2-L1
+
+Notebooks
+- [Pandas Notebook](https://github.com/Pareeksachin/100DayOfDataScience/blob/master/Day2-L1/Pandas%20Library%20in%20Python.ipynb)
+- [Numpy Notebook](https://github.com/Pareeksachin/100DayOfDataScience/blob/master/Day2-L1/Numpy%20Library%20in%20Python.ipynb)
+- [Matplotlib Notebook](https://github.com/Pareeksachin/100DayOfDataScience/blob/master/Day2-L1/Matplotlib%20Library%20in%20Python.ipynb)
+- [Pandas Hack Notebook](https://github.com/Pareeksachin/100DayOfDataScience/tree/master/Day2-L1/Pandas_Hacks-master)
+
+# In pandas hack you will get to know how to speed up your dataset. Very cool 😍
+
 ## About the Series
 
 This repository contains my progress in the 100 Days of Data Science series. I will Cover almost all the data science topic in 5 Levels.
