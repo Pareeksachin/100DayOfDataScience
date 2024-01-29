@@ -1,0 +1,301 @@
+
+SQL (Structured Query Language) :
+-------------------------------
+
+It is a standard programming language used for managing and manipulation relationall databases. Originally developed by IBM in the 1970s.
+
+
+Types of SQL : 
+
+1. DDL ( Data Definition Language)
+	- Create : Creates databases objects (tables,indexes etc.)
+	- Alter : modifies the Structure of data
+	- Drop : deletes databases objects
+	- Truncate : delete records
+	- Rename : Renaming a column
+	
+2. DQL ( Data Query Language)
+	- Select : retrieve data from a one or more tabels
+	
+3. DML ( data manipulation Language)
+	- Insert : Add records in tables
+	- Update : Modifies exisiting records in table
+	- Delete : Removes records from table
+	
+4. DCL( Data Control language) - Manage access to data within the database 
+	- Grant : Provides specific privileges to database users
+	- Revoke : Removes specific privileges from database users
+
+5. TCL ( Transaction Control Language ) 
+	- Commit : Save Changes made during the current transaction
+	- Rollback : Reverts the database to its state before the start of the current transaction
+	- Save point : sets a point within a transaction to which you can later roll back
+
+
+MySQL :
+-------
+It is a open source relational databases management system(RDBMS) that uses SQL as its query language. It was originally developedby a 
+Swedish company, MySQLAB and later acquired by Oracle Corporation. MySQLis widely used for web development powering many dynamic websites and applications
+
+Key features:
+1. Open Source
+2. Reliability
+3. Cross Platform compatibility - compatible for different OS
+4. Scalability - Can handle both small and large databases
+5. Community Support
+6. Storage Engines
+
+
+Data Types:
+----------- 
+
+SQL supports various data types, including:
+
+Numeric Types: INT, DECIMAL, FLOAT
+String Types: VARCHAR, CHAR
+Date/Time Types: DATE, TIME, TIMESTAMP
+
+
+
+Ques : What is the difference between VARCHAR or CHAR ?
+Ans : CHAR : stores fix length char string
+	  VARCHAR : stores variable length chat string
+
+
+MySQL CRUD Operations :
+-----------------------
+
+1. Create : Create a table 'employess
+	Create Table employess(
+		employee_id INT primary key,
+		first_name VARCHAR(50),
+		last_name VARCHAR(50),
+		hire_date DATA,
+		salary DECIMAL(10,2)
+	);
+	
+	Insert data in to the table
+	INSERT INTO employees (employee_id, first_name, last_name, hire_date, salary)
+	VALUES
+    (1, 'Bharat', 'Pareek', '2022-01-15', 60000.00),
+    (2, 'Lalchand', 'Pareek', '2022-02-20', 75000.50),
+    (3, 'Anup', 'Painuly', '2022-03-10', 80000.75);
+
+2. Read : Retrives data from one or more tables
+	select * from employees;
+	
+3. Update : Modifies exisiting records in a table
+
+	UPDATE employees set salary = salary * 1.1;
+	
+4. Delete : Removes records from a table
+	
+	DELETE from employees where hire_date<'2022-01-21';
+	
+	
+	
+* Filtering and Sorting data :
+	-WHERE clause
+		select * from employees where hire_date >= '2022-01-01';
+		
+	-ORDER BY clause
+		select * from employees order by employee_id desc
+		
+		
+* Change datatypes of a column
+	ALTER TABLE table_name modify COLUMN new_column_name New_DATA_TYPE;
+	
+	
+KEYs in DBMS?
+-------------
+- a attribute which uniquely identifies each entity set is called key
+
+1. Primary Key : 
+	-A primary key is a unique identifier for a record in a table. It must contain unique values and cannot have NULL values. 
+	 Each table can have only one primary key
+	 
+	CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT
+	);
+	
+2. Foreign Key : 
+	-  A foreign key is a column or set of columns in a table that refers to the primary key of another table. It establishes a 
+	   link between the two tables
+	CREATE TABLE courses (
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(50)
+	);
+	
+	CREATE TABLE student_courses(
+	enrollment_id INT Primary Key,
+	student_id INT,
+	course_id INT,
+	FOREIGN KEY (student_id) references students(student_id),
+	FOREIGN KEY (course_id) REFERENCES courses(course_id)
+	)
+	
+	
+3. Candidate Key : 
+	- Candidate Key is a set of one or more columns in a table that can uniquely identify a record in that table.
+		Each candidate key must be unique and the values with in the key should not be NULL.
+		Among the candidate keys, one is selected to be the primary key of the table
+	- contains the fewest attributes needed for uniqueness
+	Why ? 
+	Uniqueness , Relationships , Normalization (By minimizing redundancy and dependency)
+	
+	CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    ssn VARCHAR(11) UNIQUE,
+    email VARCHAR(50) UNIQUE,
+    name VARCHAR(100),
+	);
+	
+
+4. Super Key : 
+	- set of attribute that can uniquely identify a tuple is known as Super Key
+	- Adding zero or more attribute to the candidate key generates Super Key
+	- A Candidate Key is always a super Key but this is not true vice-versa
+	
+	exp : ssn , (ssn,email) etc.
+	
+5. Candidate Key : 
+	
+	The Candidate Key other than the primary Key is called alternative key.
+	
+
+Clauses:
+---------
+
+1. WHERE Clause:
+ -Filters rows based on a specified condition
+
+Select * from employee where salary>10000;
+
+2. GROUP BY clause :
+ - Groups rows that have the same values in specified column
+
+Select dept,avg(salary) from employee GROUP BY dept;
+
+	
+3.Having Clause :
+ - It is introduced because the WHERE keyword can't be used with agg fun.
+ - Filters the results of a GROUP BY clause based on a specified condition
+
+Select dept, avg(salary) from employee GROUP BY dept HAVING avg(salary) > 60000;
+
+
+4. Select clause
+5. ORDER BY clause
+6. FROM clause
+7. Join - will cover seperatly
+8. LIMIT/OFFSET ( or FETCH/FIRST ) clause:
+ - Limits the number of rows returned or skips a specified number of rows
+-- Assuming the employees table has columns: employee_id, employee_name
+
+-- Retrieve 5 rows starting from the 6th row (skip the first 5 rows)
+	SELECT employee_id, employee_name
+	FROM employees
+	ORDER BY employee_id
+	LIMIT 5 OFFSET 5;
+	
+-- OFFSET 5 - Skips the first 5 Rows
+-- LIMIT 5  - Specifies that only 5 Rows should be returned
+
+
+#Note :
+-------
+#DROP, DELETE, and TRUNCATE are three distinct commands used for
+		different purposes in manipulating data or database objects
+		
+		Drop : Deletes the entire table structure and it's data
+			   exp:	Drop table table_name;
+		Delete : Delete rows from a tables 
+			   exp :  DELETE FROM table_name WHERE condition;
+		Truncate : Removes all rows from a table,but retains the table structure
+			   exp : TRUNCATE TABLE table_name;
+
+# UNION & UNION ALL : 
+		UNION : It removes duplicate rows from the combined result set
+			    exp:SELECT column1, column2 FROM table1
+					UNION
+					SELECT column1, column2 FROM table2;
+
+		UNION ALL : It includes all rows from the combined result sets without 
+					removing duplicates
+			    exp:SELECT column1, column2 FROM table1
+					UNION ALL
+					SELECT column1, column2 FROM table2;					
+	IMP : UNION is generally slower than UNION ALL because it involves sorting and removing duplicates.
+
+
+String Functions:
+-----------------
+
+1. UPPER():Converts all characters in a string to uppercase.
+	exp : Select upper('Hello world') as Result;
+	
+2. LOWER(): Converts all characters in a string to Lowercase.
+	exp  : SELECT LOWER('Hello World') AS Result;
+	
+3. LENGTH(): Returns the numbers of char in a string
+	exp  : SELECT LENGTH('Hello World') AS Result; #output : 11
+
+4. SUBSTRING(): Extracts the substring from a given string
+	exp  : Select SUBSTRING('Hello World',1,5) AS Result; #output : 'Hello' 
+	
+5. NOW(): Return the current Data and time
+	exp  : SELECT NOW() AS Result;
+	
+6. FORMAT() : Formats a value using a specified format 
+	exp  : Select format(NOW(),'YYYY-MM-DD HH:MI:SS') as Result;
+
+7. CONCAT(): Concatenates two or more strings
+	exp  : SELECT CONCAT('Hello', ' ', 'World') AS Result;
+	
+8. REPLACE(): Replaces Occurrences of a specified substring with wnother substring
+    exp  : SELECT REPLACE('Hello World', 'World', 'Universe') AS Result;
+			#output : Hello Universe
+
+9. TRIM(): Remove leading and tralling spaces from a string
+	exp  : Select TRIM(' Hello World ') AS Result;
+	
+	
+Aggregation Functions:
+----------------------
+1 Count() : Return the number of rows in a set
+			SELECT COUNT(*) AS TotalRows FROM employees;
+			
+2. SUM() : Returns the sum of values in a numeric column.
+			SELECT SUM(salary) AS TotalSalary FROM employees;
+
+3. AVG() : Returns the average value of a numeric column.
+			SELECT AVG(salary) AS AverageSalary FROM employees;
+
+4. MIN() : Returns the Minimum value in a set.
+			SELECT MIN(salary) AS MinSalary FROM employees;
+
+5. MAX() : Returns the MAX value in a set.
+			SELECT MAX(salary) AS MinSalary FROM employees;
+
+
+#NOTE : extract() : used to extract a part of a date or time. it allows you to retrieve
+					components such as year,month ,day , hour ,minute from a 'TIMESTAMP' value
+					SELECT EXTRACT(YEAR FROM '2024-01-24 14:30:00') AS extracted_year;
+	
+
+
+
+
+
+	
+
+	
+
+	
+
+	 
+	
+
+	

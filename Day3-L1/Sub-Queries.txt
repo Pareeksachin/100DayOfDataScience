@@ -1,0 +1,203 @@
+Sub-Query : A subquery, also known as an inner query or nested query, is a query embedded within another SQL query.
+
+Types of Sub-Query:
+1. Scaler subquery - return one row and one column 
+2. Multiple row subquery
+	1) Multiple column and multiple row
+	2) 1 column and multiple rows
+3. Co-related subquery - subquery which is related to the outer query
+
+Table1 : Employee
+Table2 : department
+
+
+-- Table1 : Employee
+CREATE TABLE employee (
+  emp_id INT PRIMARY KEY,
+  emp_name VARCHAR(255),
+  dept_name VARCHAR(255),
+  salary DECIMAL(10, 2)
+);
+
+-- Inserting 20 records into the employee table
+INSERT INTO employee (emp_id, emp_name, dept_name, salary)
+VALUES
+  (1, 'John Doe', 'IT', 60000.00),
+  (2, 'Jane Smith', 'HR', 55000.00),
+  (3, 'Bob Johnson', 'Finance', 70000.00),
+  (4, 'Alice Brown', 'IT', 62000.00),
+  (5, 'Charlie Davis', 'Marketing', 58000.00),
+  (6, 'Emma White', 'Finance', 72000.00),
+  (7, 'Frank Miller', 'IT', 65000.00),
+  (8, 'Grace Wilson', 'Marketing', 60000.00),
+  (9, 'Henry Taylor', 'HR', 58000.00),
+  (10, 'Isabel Martin', 'Finance', 71000.00),
+  (11, 'Jack Harris', 'IT', 63000.00),
+  (12, 'Katherine Allen', 'Marketing', 59000.00),
+  (13, 'Liam Turner', 'Finance', 73000.00),
+  (14, 'Mia Garcia', 'IT', 67000.00),
+  (15, 'Noah Lee', 'Marketing', 61000.00),
+  (16, 'Olivia Johnson', 'HR', 59000.00),
+  (17, 'Peter Wilson', 'IT', 64000.00),
+  (18, 'Quinn Smith', 'Finance', 74000.00),
+  (19, 'Ryan Brown', 'Marketing', 62000.00),
+  (20, 'Sophia Davis', 'HR', 60000.00);
+
+
+-- Table2: Department
+CREATE TABLE department (
+  dept_id INT ,
+  dept_name VARCHAR(255) PRIMARY KEY,
+  location VARCHAR(255)
+);
+
+-- Inserting 6 records into the department table
+INSERT INTO department (dept_id, dept_name, location)
+VALUES
+  (101, 'IT', 'New York'),
+  (102, 'HR', 'Los Angeles'),
+  (103, 'Finance', 'Chicago'),
+  (104, 'Marketing', 'San Francisco'),
+  (105, 'Operations', 'Houston'),
+  (106, 'Sales', 'Miami');
+
+
+
+mysql> show tables;
++----------------------+
+| Tables_in_subqueries |
++----------------------+
+| department           |
+| employee             |
++----------------------+
+
+
+Select * from employee;
+
++--------+-----------------+-----------+----------+
+| emp_id | emp_name        | dept_name | salary   |
++--------+-----------------+-----------+----------+
+|      1 | John Doe        | IT        | 60000.00 |
+|      2 | Jane Smith      | HR        | 55000.00 |
+|      3 | Bob Johnson     | Finance   | 70000.00 |
+|      4 | Alice Brown     | IT        | 62000.00 |
+|      5 | Charlie Davis   | Marketing | 58000.00 |
+|      6 | Emma White      | Finance   | 72000.00 |
+|      7 | Frank Miller    | IT        | 65000.00 |
+|      8 | Grace Wilson    | Marketing | 60000.00 |
+|      9 | Henry Taylor    | HR        | 58000.00 |
+|     10 | Isabel Martin   | Finance   | 71000.00 |
+|     11 | Jack Harris     | IT        | 63000.00 |
+|     12 | Katherine Allen | Marketing | 59000.00 |
+|     13 | Liam Turner     | Finance   | 73000.00 |
+|     14 | Mia Garcia      | IT        | 67000.00 |
+|     15 | Noah Lee        | Marketing | 61000.00 |
+|     16 | Olivia Johnson  | HR        | 59000.00 |
+|     17 | Peter Wilson    | IT        | 64000.00 |
+|     18 | Quinn Smith     | Finance   | 74000.00 |
+|     19 | Ryan Brown      | Marketing | 62000.00 |
+|     20 | Sophia Davis    | HR        | 60000.00 |
++--------+-----------------+-----------+----------+
+
+Select * from department;
+
+
++---------+------------+---------------+
+| dept_id | dept_name  | location      |
++---------+------------+---------------+
+|     101 | IT         | New York      |
+|     102 | HR         | Los Angeles   |
+|     103 | Finance    | Chicago       |
+|     104 | Marketing  | San Francisco |
+|     105 | Operations | Houston       |
+|     106 | Sales      | Miami         |
++---------+------------+---------------+
+
+
+Sub-Query Questions : 
+
+Q1: find the employees who's salary is more than the average salary earned by all employees?
+   -- find the avg salary :select avg(salary) from employee; #63650.000000
+   -- filter the employees bases on the above result
+   # select avg(salary) from employee - Scaler subquery
+select * from employee where salary > (select avg(salary) from employee);
+
++--------+---------------+-----------+----------+
+| emp_id | emp_name      | dept_name | salary   |
++--------+---------------+-----------+----------+
+|      3 | Bob Johnson   | Finance   | 70000.00 |
+|      6 | Emma White    | Finance   | 72000.00 |
+|      7 | Frank Miller  | IT        | 65000.00 |
+|     10 | Isabel Martin | Finance   | 71000.00 |
+|     13 | Liam Turner   | Finance   | 73000.00 |
+|     14 | Mia Garcia    | IT        | 67000.00 |
+|     17 | Peter Wilson  | IT        | 64000.00 |
+|     18 | Quinn Smith   | Finance   | 74000.00 |
++--------+---------------+-----------+----------+
+
+
+Q2 : Find the employees who earns the highest salary in each department ?
+
+	-- what is the highest salary in each department
+    select dept_name,max(salary) from employee group by dept_name;
+    -- filter out the employees bases on above result 
+    
+select * from employee where ( dept_name,salary) in ( select dept_name,max(salary) from employee group by dept_name);
+
+
+output : 
++--------+--------------+-----------+----------+
+| emp_id | emp_name     | dept_name | salary   |
++--------+--------------+-----------+----------+
+|     14 | Mia Garcia   | IT        | 67000.00 |
+|     18 | Quinn Smith  | Finance   | 74000.00 |
+|     19 | Ryan Brown   | Marketing | 62000.00 |
+|     20 | Sophia Davis | HR        | 60000.00 |
++--------+--------------+-----------+----------+
+
+
+Q3 : Find the department who does not have any employee ( single column , multiple row subquery)
+	-- Approach :
+	-- find the department who have employee => select distinct dept_name from employee; 
+
+Result:
+
+select dept_name from department where dept_name not in (select distinct dept_name from employee);
++------------+
+| dept_name  |
++------------+
+| Operations |
+| Sales      |
++------------+
+
+
+Q4 : Find the employees in each department who earn more than the average salary in that department
+
+	-- Approach
+	-- find the average salary of each department =>  select dept_name, avg(salary) from employee group by dept_name;
+	
+	select * from employee where (dept_name,salary) > (select dept_name,avg(salary) from employee group by dept_name); - this will not work 
+	-- because it will return more than one raw
+	
+	Query : 
+	-- for each record of the employee inner query will run every time
+	-- it is correlated query - not recommended to use because of efficiency
+	
+	select * from employee e1 where salary > (select avg(salary) from employee e2 where e2.dept_name = e1.dept_name);
+	
+----+--------+----------------+-----------+------+
+| emp_id | emp_name       | dept_name | salary   |
++--------+----------------+-----------+----------+
+|      7 | Frank Miller   | IT        | 65000.00 |
+|     13 | Liam Turner    | Finance   | 73000.00 |
+|     14 | Mia Garcia     | IT        | 67000.00 |
+|     15 | Noah Lee       | Marketing | 61000.00 |
+|     16 | Olivia Johnson | HR        | 59000.00 |
+|     17 | Peter Wilson   | IT        | 64000.00 |
+|     18 | Quinn Smith    | Finance   | 74000.00 |
+|     19 | Ryan Brown     | Marketing | 62000.00 |
+|     20 | Sophia Davis   | HR        | 60000.00 |
++--------+----------------+-----------+----------+
+
+
+
