@@ -24,6 +24,21 @@ Notebooks
 
 # In pandas hack you will get to know how to speed up your dataset. Very cool 😍
 
+
+Day3-L1
+
+- [MySQL notes](https://github.com/Pareeksachin/100DayOfDataScience/blob/master/Day3-L1/MySQL%20Notes.txt)
+- [MySQL Practice](https://github.com/Pareeksachin/100DayOfDataScience/blob/master/Day3-L1/Sub-Queries.txt)
+- [Sub-Queries](https://github.com/Pareeksachin/100DayOfDataScience/blob/master/Day3-L1/Subqueries.sql)
+
+
+Day4-L1 
+
+- [ACID Properties](https://github.com/Pareeksachin/100DayOfDataScience/blob/master/Day4-L1/ACID%20properties.txt)
+- [Joins](https://github.com/Pareeksachin/100DayOfDataScience/blob/master/Day4-L1/All%20Joins.txt)
+- [Normalization](https://github.com/Pareeksachin/100DayOfDataScience/blob/master/Day4-L1/Normalization.txt)
+
+
 ## About the Series
 
 This repository contains my progress in the 100 Days of Data Science series. I will Cover almost all the data science topic in 5 Levels.
