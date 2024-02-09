@@ -1,0 +1,128 @@
+Normalization : 
+	Normalization is the process of organizing data in a database efficiently. This involves 
+	decomposing a table into smaller tables and defining relationships between them to 
+	minimize redundancy and depende
+
+
+
+-> Process of organizing data in database
+-> it is used to minimize the redundancy from a relation or set of relations.
+-> Provide much more flexible database design.
+
+Disadvantage : 
+
+-> performance degrades when normalizing the relations to higher normal forms. exp : 4NF, 5NF
+-> time consuming to normalize high forms
+
+
+1NF : 
+----  
+-> It contains only atomix values
+-> can't hold multiple values in a single row
+
+exp: 
+
+CustomerID | OrderID | Product
+1          | 100     | Apple, Banana
+
+In 1NF
+
+CustomerID | OrderID | Product
+1          | 100     | Apple
+1          | 100     | Banana
+
+2NF:
+----
+
+-> Relation must be in 1NF
+->Ensures that each non-key column is fully functionally dependent on the entire primary key. 
+	To achieve 2NF, we remove partial dependencies by separating out subsets of data that
+	apply to multiple rows.
+	
+exp : 
+EmployeeID | EmployeeName | ProjectID | ProjectName | ProjectManager
+1          | Alice        | 100       | Project A   | Bob
+
+In 2NF
+
+EmployeeID | EmployeeName
+1          | Alice
+
+
+ProjectID | ProjectName | ProjectManager
+100       | Project A   | Bob
+
+
+3NF:
+----
+-> Relation must be in 2NF
+-> Ensures that there are no transitive dependencies, meaning non-key columns depend only 
+	on the primary key, not on other non-key columns
+-> 3NF is used to reduce the data duplication. it is also used to achieve the data integrity
+-> having two primary key in one table would contradict the purpose
+
+OrderID | CustomerName | EmployeeName | EmployeeDepartment
+100     | Alice        | Bob          | Sales
+
+IN 3NF
+
+OrderID | CustomerName
+100     | Alice
+
+EmployeeName | EmployeeDepartment
+Bob          | Sales
+
+OrderID | EmployeeName
+100     | Bob
+
+
+BCNF:
+----
+
+-> BCNF is a advance form of 3NF
+-> BCNF ensures that every determinant( attribute that determines another attributes) in a table
+	is a candidate key. this means that no non-prime attribute is functionally dependent on a proper subset
+	of any candidate key
+	
+To achieve BCNF, all functional dependencies must meet the following conditions
+
+1. Every determinant must be a candidate key
+2. There should be no non trivial functional dependencies of non prime attributes on any candidate key	
+
+*In simpler terms, a candidate key is a minimal superkey, meaning it is the smallest set of columns that 
+	can uniquely identify each record in the table.
+
+exp:
+
+StudentID | CourseID | StudentName | CourseName | Professor
+1         | 101      | Alice       | Math       | Prof. Smith
+2         | 102      | Bob         | Physics    | Prof. Johnson
+3         | 101      | Carol       | Math       | Prof. Smith
+
+In this table, the candidate keys are {StudentID, CourseID} and {CourseID}. However, the attribute "Professor" 
+	is functionally dependent on "CourseID" alone, which is a subset of the candidate key {StudentID, CourseID}.
+	Therefore, this table violates BCNF.
+
+
+Table 1: Students
+StudentID | StudentName
+1         | Alice
+2         | Bob
+3         | Carol
+
+Table 2: Courses
+CourseID | CourseName | Professor
+101      | Math       | Prof. Smith
+102      | Physics    | Prof. Johnson
+
+
+
+
+
+
+
+
+    
+
+
+

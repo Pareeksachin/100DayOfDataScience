@@ -1,0 +1,34 @@
+What is ACID properties?
+
+ACID (Atomicity, Consistency, Isolation, Durability) properties are the four key characteristics that ensure 
+the reliability and integrity of transactions in database management systems. 
+
+
+Atomicity : A transaction is either executed entirely or not executed at all. ( No partial execution). Data remain automatic
+---------
+
+Consistency: Value should remain preserve always. the integrity of data should be maintained, which means any changes in database is made
+-----------	     it should remain preserved.
+			 
+			 ----------					 |----------|
+			 | 	A 	   |				 | A = 20   |
+			 |---------|				/| C = 10   |
+			 | T = 100 |               / | A = 30   | 
+			 | D = 10  |---------------  |----------| 
+			 | A = 90  |				\
+			 | D = 20  |				 \|---------|
+			 | A = 70  |				  |	A = 50  |
+			 |---------|				  | C = 20  |
+										  | A = 70  |
+										  |---------|
+										  
+Isolation :  Multiple transactions occure independently without interference. Isolation means seperation, a property of database where no data should
+-----------     effect other one and may occure concurrently.
+
+
+Durability : the changes of a successful transaction occures even if the system failure occures. 
+------------  Durability means data after the successful execution of the operation become parmanent in database   
+
+										  
+										  
+										  
