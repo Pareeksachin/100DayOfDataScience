@@ -1,0 +1,136 @@
+Variables :
+-----------
+
+In statistics and data analysis, variables are characteristics or attributes that can take on different values. Variables are classified into different types based on their nature and the kind of data they represent. The main types of variables are:
+
+
+Categorical Variables:
+	Also known as qualitative variables, they represent categories or groups.
+	Examples include gender, marital status, type of car, etc.
+	Categorical variables can be further divided into nominal and ordinal variables.
+
+	1. Nominal Variables:
+	Nominal variables represent categories without any inherent order or ranking.
+	Examples include colors, types of fruits, etc.
+	Operations like counting and mode can be performed on nominal variables.
+	2. Ordinal Variables:
+	Ordinal variables have categories with a specific order or ranking.
+	However, the intervals between categories may not be equal.
+	Examples include educational levels (e.g., elementary school, high school, college), Likert scale responses (e.g., strongly agree, agree, neutral, disagree, strongly disagree).
+	
+Numerical Variables:
+	Also known as quantitative variables, they represent measurable quantities or numerical values.
+	Numerical variables can be further divided into discrete and continuous variables.
+	
+	1. Discrete Variables:
+	Discrete variables have finite or countably infinite values.
+	Examples include the number of children in a family, the number of cars in a parking lot, etc.
+	2. Continuous Variables:
+	Continuous variables can take on any value within a given range or interval.
+	They often arise from measurements and can have infinitely many possible values.
+	Examples include height, weight, temperature, etc.
+
+
+Probability:
+------------
+
+Basic Concepts of Probability:
+
+Definition: Probability measures the likelihood of an event occurring.
+Scenario: When rolling a fair six-sided die, the probability of getting a 3 is 1/6
+
+
+Major Application of Probability:
+
+=> It is used for risk assessment and modelling in various industries
+=> Weather forecasting or prediction of weather changes
+=> Probability of a team winning in a sport based on players and strength of team
+=> In the share market, chances of getting the hike of share prices
+
+ .
+Probability Distributions:
+Introduction: Probability distributions describe the likelihood of each possible outcome in an experiment.
+Scenario: In a coin toss, the probability distribution for the number of heads follows a binomial distribution.
+
+Conditional Probability:
+Definition: Conditional probability is the probability of an event occurring given that another event has already occurred.
+Scenario: Given that it is raining, the probability of someone carrying an umbrella is higher than when it is not raining.
+
+Bayes' Theorem:
+Concept: Bayes' theorem calculates the probability of an event based on prior knowledge.
+Scenario: A medical test for a disease may have a false positive rate, and Bayes' theorem helps adjust the probability of having the disease based on the test result.
+
+Joint and Marginal Probability:
+Joint Probability: Probability of two (or more) events occurring simultaneously.
+Marginal Probability: Probability of an event without consideration of other events.
+Scenario: In a survey, joint probability may be used to understand the likelihood of respondents choosing multiple options, while marginal probability may analyze responses for individual questions.
+
+Expectation and Variance:
+Expectation: Average outcome of a random variable.
+Variance: Measure of the spread of a distribution.
+Scenario: In a game of rolling dice, the expectation is the average value rolled, while the variance indicates how much the outcomes deviate from this average.
+
+Law of Large Numbers and Central Limit Theorem:
+Law of Large Numbers: States that as the sample size increases, the sample mean approaches the population mean.
+Central Limit Theorem: Describes the distribution of sample means, which tend to be normally distributed regardless of the original distribution of the population.
+Scenario: In polling, the law of large numbers ensures that a larger sample size provides a more accurate estimate of public opinion.
+
+Markov Chains:
+Definition: A stochastic process where the probability of transitioning to the next state depends only on the current state.
+Scenario: Modeling the weather as a Markov chain, where tomorrow's weather depends only on today's weather, not on past weather conditions.
+
+
+Types of Probability Distributions:
+-----------------------------------
+1.Discrete Probability Distributions:
+
+	Bernoulli Distribution:
+		=> The Bernoulli distribution represents a single trial with two possible outcomes: success or failure.
+		=> Real-world scenario: Flipping a coin, where success may represent landing heads and failure landing tails.
+	
+	Binomial Distribution:
+		=> The binomial distribution describes the number of successes in a fixed number of independent Bernoulli trials.
+		=> Real-world scenario: Counting the number of heads obtained in 10 coin flips.
+	
+	Poisson Distribution:	
+		=> The Poisson distribution models the number of events occurring in a fixed interval of time or space, given a known average rate.
+		=>Real-world scenario: The number of customer arrivals at a service desk within a given hour.
+
+2. Continuous Probability Distributions:
+
+	Normal (Gaussian) Distribution:
+		=> The normal distribution is characterized by a bell-shaped curve and is widely used due to its symmetry and well-understood properties.
+		=> Real-world scenario: Human height, where the distribution is centered around the mean height with most people clustered near the average.
+	
+	Uniform Distribution:
+		=> In a uniform distribution, all outcomes are equally likely.
+		=> Real-world scenario: Rolling a fair six-sided die, where each face has an equal probability of appearing (1/6).	
+	
+	Exponential Distribution:
+		=> The exponential distribution describes the time between events in a Poisson process, where events occur continuously and independently at a constant average rate.
+		=> Real-world scenario: The time between successive arrivals of buses at a bus stop.
+	
+	Gamma Distribution:
+		the gamma distribution is used to model the time it takes for an event to occur. It's particularly useful when dealing with situations where events happen continuously 
+		and independently at a constant average rate, such as the arrival of customers at a service desk, the arrival of buses at a bus stop, or the time between arrivals of 
+		calls at a call center.
+		
+		Real-world Scenario:
+		Understanding customer arrival rates at a call center.
+		
+		Application:
+		Modeling the time between customer calls to optimize staffing levels.
+		
+		Benefits:
+		Helps in estimating inter-arrival times to ensure optimal staffing, improving customer service and operational efficiency.
+	
+	Beta Distribution:
+		Real-world Scenario:
+		Analyzing market share in a competitive industry.
+		
+		Application:
+		Modeling the distribution of market shares for competing companies.
+		
+		Benefits:
+		Provides insights into market share dynamics, allowing for better strategic decision-making and risk assessment.	
+		

@@ -1,0 +1,53 @@
+1.Mean: The average value of a dataset, calculated by summing all values and dividing by the total number of 	values.
+
+Example: Consider the dataset [10, 15, 20, 25, 30]. The mean is calculated as (10 + 15 + 20 + 25 + 30) / 5 = 20.
+
+2.Median: The middle value of a dataset when arranged in ascending or descending order. If there is an even number 	of values, the median is the average of the two middle values.
+
+Example: For the dataset [10, 15, 20, 25, 30], the median is 20. If the dataset is [10, 15, 20, 25, 30, 35], the median is (20 + 25) / 2 = 22.5.
+
+3.Mode: The most frequently occurring value in a dataset.
+
+Example: In the dataset [10, 15, 20, 20, 25, 30], the mode is 20 because it appears more frequently than other values.
+
+4.Variance: A measure of the dispersion or spread of a dataset. It is calculated by averaging the squared 	differences between each value and the mean.
+
+Example: Consider the dataset [10, 15, 20, 25, 30] with a mean of 20. The squared differences are [(10-20)^2, (15-20)^2, (20-20)^2, (25-20)^2, (30-20)^2]. The variance is the average of these squared differences.
+
+5.Standard Deviation: The square root of the variance. It provides a measure of the average deviation of each data 	point from the mean.
+
+Example: If the variance of a dataset is 25, then the standard deviation is the square root of 25, which is 5.
+
+6.Covariance: A measure of how two variables change together. Positive covariance indicates that when one variable 	increases, the other variable tends to increase as well, and vice versa for negative covariance.
+
+Example: Consider two variables X and Y. If increases in X tend to coincide with increases in Y, they have positive covariance. If increases in X coincide with decreases in Y, they have negative covariance.
+
+7.Correlation: A standardized measure of the strength and direction of the linear relationship between two 	variables. It ranges from -1 to 1, where -1 indicates a perfect negative linear relationship, 1 indicates a 	perfect positive linear relationship, and 0 indicates no linear relationship.
+
+Example: A correlation coefficient of 0.8 between two variables X and Y indicates a strong positive linear 	relationship, while a correlation coefficient of -0.6 indicates a moderate negative linear relationship.
+
+
+
+Covariance & Correlation:
+-------------------------
+Covariance measures the degree to which two variables change together. It indicates the direction of the linear relationship between two variables.
+
+Correlation is a standardized measure of the linear relationship between two variables. It measures both the strength and direction of the relationship.
+
+Here's a simple example to illustrate:
+
+Consider two variables: X represents the number of hours studied for an exam, and Y represents the exam scores obtained.
+
+If X and Y tend to increase or decrease together, they have a positive covariance. This indicates a positive relationship: as one variable increases, the other tends to increase as well. For instance, students who study more tend to score higher on exams.
+
+If X increases while Y decreases, or vice versa, they have a negative covariance. This indicates a negative relationship: as one variable increases, the other tends to decrease. For example, if students spend less time studying, their exam scores might decrease.
+
+Covariance itself doesn't provide a clear measure of the strength of the relationship. That's where correlation comes in.
+
+Correlation standardizes the measure, providing a value between -1 and 1.
+
+A correlation of 1 indicates a perfect positive relationship: as one variable increases, the other increases proportionally.
+A correlation of -1 indicates a perfect negative relationship: as one variable increases, the other decreases proportionally.
+A correlation of 0 indicates no linear relationship between the variables.
+In summary, covariance measures the directional relationship between variables, while correlation additionally standardizes this measure to provide insights into the strength and direction of the relationship.
+
