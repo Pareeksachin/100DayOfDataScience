@@ -10,6 +10,16 @@ st.set_page_config(page_title="Superstore!!!", page_icon=":bar_chart:", layout="
 st.title(":bar_chart: SuperStore Sales EDA")
 st.markdown('<style>div.block-container{padding-top:1rem;}</style>', unsafe_allow_html=True)
 
+
+# Define file paths dynamically based on environment
+if "CONTENT_DIR" in os.environ:
+    # Running on Streamlit Cloud
+    data_file_path = os.path.join(os.environ["CONTENT_DIR"], "Superstore.xls")
+else:
+    # Running locally
+    current_dir = os.path.dirname(__file__)
+    data_file_path = os.path.join(current_dir, "Superstore.xls")
+    
 fl = st.file_uploader(":file_folder: Upload a file", type=(["csv", "txt", "xlsx", "xls"]))
 if fl is not None:
     filename, ext = os.path.splitext(fl.name)
@@ -21,8 +31,7 @@ if fl is not None:
         st.error("Unsupported file format. Please upload a CSV, Excel, TXT file.")
         st.stop()
 else:
-    os.chdir(r"/content/")
-    df = pd.read_excel("Superstore.xls")
+    df = pd.read_excel(data_file_path)
 
 col1, col2 = st.columns((2))
 df["Order Date"] = pd.to_datetime(df["Order Date"])
